@@ -1,0 +1,564 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+$primaryFont :'Maven Pro', sans-serif;
+$secondaryFont : 'Roboto Slab', serif;
+@import "compass/reset";
+
+body{
+	background : #f5f5f5;
+	font-size: 14px;
+	font-family: $primaryFont;
+	*{
+		 box-sizing: border-box;
+	}
+}
+
+a{
+	color: #e0e0e1;
+	font-weight: 500;
+	font-size: 14px; 
+	cursor: pointer;
+}
+
+@mixin desc(){
+	display: flex;
+	flex-direction :column;
+	justify-content : center;
+	align-items : center;
+	.name{
+		font-weight: 500;
+		color: #333333;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+	.occupation{
+		line-height: 25px;
+		color: #666666;
+		font-weight: 300;
+		font-size: 14px;
+	}
+}
+
+@mixin clearfix(){
+	&:after {
+	     visibility: hidden;
+	     display: block;
+	     font-size: 0;
+	     content: " ";
+	     clear: both;
+	     height: 0;
+ 	}
+}
+h2{
+	text-transform: uppercase;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.bloggers-section{
+	margin: auto;
+	margin-top: 80px;
+	display: block;
+	width: 80%;
+	@media screen and (min-width: 320px) and (max-width: 768px){
+		width: 100%;
+	    padding: 0 10px;
+    	box-sizing: border-box;
+    	margin-top: 40px;
+	}
+	@media screen and (max-width: 320px){
+		width: 100%;
+		padding: 0 10px;
+		box-sizing: border-box;
+		margin-top: 20px;
+	}
+	@media screen and (min-width: 1600px){
+		width: 60%;
+	}
+	.wrapper{
+		background : #fff;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		@media screen and (min-width: 320px) and (max-width: 768px){
+			display: block;
+		}
+		@media screen and (max-width: 320px){
+			display: flex;
+    		flex-direction: column;
+		}
+		.blogger-main{
+			width: 380px;
+			@media screen and (min-width: 320px) and (max-width: 768px){
+				width: 50%;
+				background: #fff;
+				height: 320px;
+			}
+			@media screen and (max-width: 320px){
+				width: 100%;
+				height: 320px;
+			}
+		    float: left;
+    		box-sizing: border-box;
+			@include desc();
+			.testimonial{
+				font-family : $secondaryFont;
+				color: #2f3138;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				display: block;
+				margin-bottom: 25px;
+			}
+			.testimonial{
+				font-weight: 600;
+				width: 70%;
+				@media screen and (max-width: 1280px){
+					width: 90%;
+				}
+				line-height: 18px;
+				text-align: center;
+				margin-top: 10px;
+				color: #2f3138;
+			}
+		}
+		.blogger-column{
+			float: left;
+    		box-sizing: border-box;
+			height: 100%;
+			width: 25%;
+			border-right: 1px solid #f3f3f3;
+			width: 320px;
+			height: 320px;
+			@media screen and (min-width: 320px) and (max-width: 768px){
+				width: 50%;
+				height: 320px;
+				.blogger{
+					width: 50%;
+					box-sizing: border-box;
+					float: left;
+				}
+			}
+			@media screen and (max-width: 320px){
+				width: 100%;
+				height: 240px;
+				&.guest-column{
+					height: 280px;
+				}
+				.blogger{
+					width: 100%;
+				}
+				.image{
+
+				}
+				.desc{
+
+				}
+				&.ord-1{
+					order : 1;
+				}
+				&.ord-2{
+					order : 2;
+				}
+				&.ord-3{
+					order : 3;
+				}
+				&.ord-4{
+					order : 4;
+				}
+			}
+			&.in-row{
+				@media screen and (min-width: 321px) and (max-width: 768px){
+					width: 100%;	
+					height: 160px;
+					.blogger{
+						width: 50%;
+						height: 100%;
+						box-sizing: border-box;
+						float: left;
+					}
+				}
+			}
+			.blogger{
+				height: 50%;
+				width: 100%;
+				background: #fcfcfc;
+				border-bottom: 1px solid #f3f3f3;
+				@include desc();
+				@media screen and (max-width: 320px){
+					flex-direction : row;
+					height: 120px;
+					.image{
+						margin-right: 20px;
+					}
+					.desc{
+
+					}
+				}
+				&.guest-blogger{
+					font-family: $secondaryFont;
+					background: #89bd43;
+					@media screen and (max-width: 320px){
+						flex-direction : column;
+						height: 160px;
+					}
+					.guest{
+						font-size: 20px;
+					    text-align: center;
+					    font-weight: 700;
+					    padding: 0 5%;
+					    line-height: 25px;
+					    color: #fff;
+					    width: 80%;
+					    @media screen and (min-width: 768px) and (max-width: 1280px){
+					    	width: 100%;
+					    	padding : 0 4%;
+					    }
+					}
+					.join-us{
+						text-transform: uppercase;
+						margin-top: 25px;
+						@media screen and (max-width: 1280px){
+							margin-top: 15px;
+						}
+						background: #fff;
+						color: #89bd43;
+						padding: 8px 15px;
+						border-radius: 25px;
+						font-size: 12px;
+						font-weight: 600;
+						font-family: $primaryFont
+					}
+				}
+				img{
+					width: 60px;
+					height: 60px;
+					border-radius: 50px;
+					display: block;
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}
+.footer-section{
+	background: #2f3138;
+	margin-top: 120px;
+	h2{
+		color: #e0e0e1;
+		font-weight: 400;
+	}
+	@media screen and (max-width: 320px){
+		h2{
+			margin-bottom: 10px;
+		}
+	}
+	.footer-container{
+		margin: auto;
+		width: 80%;
+		padding: 40px 0;
+		@media screen and (min-width: 1600px){
+			width: 60%;
+		}
+		@media screen and (max-width: 320px){
+			width: 100%;
+			h2{
+				padding-left: 10px;
+			}
+			padding: 10px 0;
+		}
+		.wrapper{
+			display: flex;
+			@media screen and (min-width: 320px) and (max-width: 768px){
+				width: 100%;
+				display: block;
+			    padding: 0 10px;
+		    	box-sizing: border-box;
+			}
+			@media screen and (max-width: 320px){
+				width: 100%;
+				display: block;
+		    	box-sizing: border-box;
+				padding: 0 5px;
+			}
+			.footer-links{
+				@include clearfix();
+				@media screen and (min-width: 320px) and (max-width: 768px){
+					width: 100%;
+				}
+				@media screen and (max-width: 320px){
+					padding: 20px 10px;
+					width: 100%;
+				}
+				width: 60%;
+				height: 100%;
+				.link{
+					display: inline-block;
+					width: 32.3%;
+					line-height: 34px;
+					font-size: 12px; 
+					@media screen and (max-width: 320px){
+						width: 50%;
+						box-sizing : border-box;
+						float: left;
+					}
+					@media screen and (min-width: 321px) and (max-width: 480px){
+						width: 50%;
+						box-sizing : border-box;
+						float: left;
+					}
+					@media screen and (min-width: 768px) and (max-width: 1024px){
+						width: 50%;
+						float: left;
+						box-sizing : border-box;
+					}
+				}
+			}
+			.footer-form{
+				@include clearfix();
+				@media screen and (min-width: 320px) and (max-width: 768px){
+					width: 100%;
+					margin-top: 40px;
+				}
+				@media screen and (max-width: 320px){
+					width: 100%;
+					margin-top: 0px;
+					padding: 0px 10px 20px 10px;
+				}
+				width: 40%;
+				height: 100%;
+				.subscribe-form{
+					background: #2b2d33;
+					padding: 20px 30px;
+					@media screen and (max-width: 320px){
+						margin-top: 10px;
+						padding: 10px 0;
+					}
+					.heade-text{
+						font-size: 18px;
+						font-weight: 400;
+						color: #e0e0e1;
+					    display: inline-block;
+					    margin-right: 15px;
+					    line-height: 24px;
+					    @media screen and (max-width: 320px){
+							margin-bottom: 10px;
+							display: block;
+						}
+					}
+					.input-wrap{
+						@media screen and (max-width: 320px){
+							padding: 0 10px;
+						}
+					}
+					.group{
+						@media screen and (min-width: 321px) and (max-width: 768px){
+							width: 100%;
+						}
+						position: relative;
+						background: #f2f2f2;
+						height: 40px;
+						line-height: 40px;
+						border-radius: 20px;
+						display: block;
+						margin: 20px 0 10px 0;
+						input{
+					       	border: 0;
+						    margin-left: 20px;
+						    width: 80%;
+						    height: 32px;
+						    outline: none;
+						    margin-top: 2px;
+						    background: #f2f2f2;
+						    font-size: 14px;
+						    line-height: 36px;
+						    font-weight: 500;
+						}
+						span{
+						    position: absolute;
+						    top: 0;
+						    right: 4px;
+						    width: 36px;
+						    height: 36px;
+						    background: orange;
+						    text-align: center;
+						    border-radius: 20px;
+						    top: 2px;
+						    color: #fff;
+						    font-weight: 600;
+						    line-height: 36px;
+						}
+					}
+					.feed-wrap{
+						margin-top: 10px;
+						@media screen and (max-width: 320px){
+							padding: 20px 20px 0px 20px;
+						}
+					    @media screen and (min-width: 321px) and (max-width: 1280px){
+					    	.feed-links{
+					    		@include clearfix();
+					    		display: block;
+					    		width: 100%;
+					    		margin-top: 10px;
+					    	}
+					    }
+						.feed{
+							display: inline-block;
+							background : #202227;
+						    padding: 6px 7px 10px 10px;
+						    color: #e0e0e1;
+						    text-transform: uppercase;
+						    font-size: 12px;
+						    margin-right: 10px;
+					        height: 36px;
+    						line-height: 28px;
+						    @media screen and (max-width: 320px){
+						    	margin-right: 0px;
+						    	margin-top: 10px;
+						    }
+						    @media screen and (min-width: 321px) and (max-width: 1280px){
+						    	margin-top: 10px;
+						    }
+						    font-weight: .500;
+						}
+						.wifi{
+						    width: 15px;
+						    height: 15px;
+						    display: inline-block;
+						    background-size: 14px;
+						    background-repeat: no-repeat;
+						    background-image: url(../images/wifi.png);
+						    margin-left: 7px;
+						    background-position: 0 0px;
+						    position: relative;
+						    top: 4px;
+						}
+					}
+					.social-wrap{
+						@media screen and (max-width: 320px){
+							padding: 20px 20px 0px 20px;
+						}
+						margin-top: 10px;
+						.social{
+							width: 20px;
+							height: 20px;
+							display: inline-block;
+							background-size: 20px;
+							background-repeat: no-repeat;
+							margin : 0 6px;
+							&.f{
+								background-image: url('../images/f.png');
+							}
+							&.t{
+								background-image: url('../images/t.png');	
+							}
+							&.in{
+								background-image: url('../images/in.png');
+							}
+						}
+						.social-inline-block{
+							display : inline-block;
+							margin-top: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.footer-bottom{
+	background: #2f3138;
+	border-top: 1px solid #3c3c3c;
+	padding: 30px 0;
+	.wrapper{
+		margin: auto;
+		width: 80%;
+		@media screen and (min-width: 1600px){
+			width: 60%;
+		}
+		display: flex;
+		a{
+			padding: 0 10px;
+		}
+		@media screen and (min-width: 320px) and (max-width: 768px){
+			flex-direction : column;
+		}
+		@media screen and (max-width: 320px){
+			flex-direction : column;	
+		}
+		.footer-bottom-links{
+			flex : 1;
+			text-align: center;
+			@media screen and (max-width: 320px){
+				order : 1;
+				text-align: left;
+			}
+			.link{
+				display: inline-block;
+				line-height: 34px;
+				font-size: 12px; 
+				@media screen and (max-width: 320px){
+					width: 50%;
+					box-sizing : border-box;
+					float: left;
+				}
+			}
+		}
+		.copyright{
+			color: #e0e0e1;
+			line-height: 32px;
+			font-size: 12px;
+			@media screen and (min-width: 321px) and (max-width: 768px){
+				order : 2;
+				display: inline-block;
+			    position: relative;
+    			top: -10px;
+    			line-height: auto;
+			}
+			@media screen and (max-width: 320px){
+				order : 2;
+				text-align: center;
+				padding-top: 10px;
+				border-top: 1px solid #3c3c3c;
+			}
+		}
+		.crafted-by{
+			color: #e0e0e1;
+			line-height: 32px;
+			font-size: 12px;
+			@media screen and (max-width: 320px){
+				order : 3;
+				text-align: center;
+				margin-top: 0px;
+			}
+
+			@media screen and (min-width: 321px) and (max-width: 768px){
+				text-align: right;
+				display: inline-block;
+			    position: relative;
+    			top: 20px;
+    			line-height: auto;
+			}
+			a{
+				color: #ae5971;
+			}
+		}
+	}
+}
+
+.clearfix{
+	@include clearfix();
+}
+
+@media screen and (max-width: 320px){
+	.border-top{
+		border-top: 1px solid #3c3c3c;
+	}
+	.inline-block{
+		display: inline-block !important;
+	}
+}
